@@ -1,4 +1,4 @@
-# tspsolver
+# toposolve
 
 A fast C++ implementation of the Held-Karp algorithm for solving the Traveling Salesman Problem (TSP) for ring-reduce tours, with Python bindings.
 We solve a specific variant of TSP where the `dist(i, j)` is calculated as `min(max(dist(i, k), dist(k, j)) for k in range(n))`.
@@ -6,13 +6,13 @@ We solve a specific variant of TSP where the `dist(i, j)` is calculated as `min(
 ## Installation
 
 ```bash
-pip install tspsolver
+pip install toposolve
 ```
 
 ## Usage
 
 ```python
-from tspsolver import TSPSolver
+from toposolve import TSPSolver
 
 # Create distance matrix
 distances = [
@@ -41,8 +41,8 @@ print(f"Optimal path: {path}")
 ## Building from source
 
 ```bash
-git clone https://github.com/Jackmin801/tspsolver
-cd tspsolver
+git clone https://github.com/Jackmin801/toposolve
+cd toposolve
 pip install .
 ```
 

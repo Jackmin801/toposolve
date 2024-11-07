@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
-project(tspsolver)
+project(toposolve)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,4 +12,4 @@ execute_process(
 )
 find_package(pybind11 CONFIG REQUIRED PATHS "${pybind11_DIR}")
 
-pybind11_add_module(_tspsolver src/tspsolver/_tspsolver.cpp)
+pybind11_add_module(_toposolve src/toposolve/_tspsolver.cpp)

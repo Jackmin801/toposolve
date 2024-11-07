@@ -1,5 +1,5 @@
 import pytest
-from tspsolver import TSPSolver
+from toposolve import TSPSolver
 
 def test_small_tsp():
     distances = [

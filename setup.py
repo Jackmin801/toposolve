@@ -47,17 +47,17 @@ class CMakeBuild(build_ext):
         )
 
 setup(
-    name="tspsolver",
+    name="toposolve",
     version="0.1.0",
     author="Jack Min Ong",
     author_email="ongjackm@gmail.com",
     description="A fast C++ implementation of the Held-Karp algorithm for solving TSP",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/Jackmin801/tspsolver",
-    packages=["tspsolver"],
+    url="https://github.com/Jackmin801/toposolve",
+    packages=["toposolve"],
     package_dir={"": "src"},
-    ext_modules=[CMakeExtension("tspsolver._tspsolver")],  # Updated name here
+    ext_modules=[CMakeExtension("toposolve._tspsolver")],  # Updated name here
     cmdclass={"build_ext": CMakeBuild},
     classifiers=[
         "Programming Language :: Python :: 3",
