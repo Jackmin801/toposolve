@@ -1,4 +1,4 @@
 include CMakeLists.txt
 include README.md
 include LICENSE
-include src/toposolve/_tspsolver.cpp
+include src/toposolve/_toposolve.cpp

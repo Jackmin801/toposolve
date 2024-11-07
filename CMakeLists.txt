@@ -12,4 +12,4 @@ execute_process(
 )
 find_package(pybind11 CONFIG REQUIRED PATHS "${pybind11_DIR}")
 
-pybind11_add_module(_toposolve src/toposolve/_tspsolver.cpp)
+pybind11_add_module(_toposolve src/toposolve/_toposolve.cpp)

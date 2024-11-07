@@ -57,7 +57,7 @@ setup(
     url="https://github.com/Jackmin801/toposolve",
     packages=["toposolve"],
     package_dir={"": "src"},
-    ext_modules=[CMakeExtension("toposolve._tspsolver")],  # Updated name here
+    ext_modules=[CMakeExtension("toposolve._toposolve")],  # Updated name here
     cmdclass={"build_ext": CMakeBuild},
     classifiers=[
         "Programming Language :: Python :: 3",

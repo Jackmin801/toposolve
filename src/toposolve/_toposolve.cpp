@@ -78,7 +78,7 @@ public:
     }
 };
 
-PYBIND11_MODULE(_tspsolver, m) {
+PYBIND11_MODULE(_toposolve, m) {
     m.doc() = "Fast C++ implementation of the Held-Karp algorithm for solving TSP";
 
     py::class_<TSPSolver>(m, "TSPSolver")
