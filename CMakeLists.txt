@@ -19,7 +19,15 @@ find_package(pybind11 CONFIG REQUIRED PATHS "${pybind11_DIR}")
 
 pybind11_add_module(_toposolve src/toposolve/_toposolve.cpp)
 
-# Set target properties for architecture
+# Ensure proper output directory structure for Windows
+if(WIN32)
+    set_target_properties(_toposolve PROPERTIES
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/toposolve
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/toposolve
+    )
+endif()
+
+# Set Mac-specific architecture
 if(APPLE)
     set_target_properties(_toposolve PROPERTIES OSX_ARCHITECTURES "x86_64;arm64")
 endif()

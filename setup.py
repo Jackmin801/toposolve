@@ -18,9 +18,9 @@ class CMakeBuild(build_ext):
         if not os.path.exists(build_temp):
             os.makedirs(build_temp)
 
-        if not extdir.endswith(os.path.sep):
-            extdir += os.path.sep
-
+        # Ensure proper slashes for Windows
+        extdir = extdir.replace("\\", "/")
+        
         cmake_args = [
             f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}",
             f"-DPYTHON_EXECUTABLE={sys.executable}",
@@ -32,8 +32,13 @@ class CMakeBuild(build_ext):
         env = os.environ.copy()
         if platform.system() == "Windows":
             build_args += ["--", "/m"]
+            # Specify the generator for Windows
+            cmake_args += ["-G", "Visual Studio 17 2022", "-A", "x64"]
         else:
             build_args += ["--", "-j2"]
+
+        if not os.path.exists(build_temp):
+            os.makedirs(build_temp)
 
         subprocess.check_call(
             ["cmake", ext.sourcedir] + cmake_args,
