@@ -32,6 +32,8 @@ jobs:
 
       - name: Update version in __init__.py
         run: |
+          sed '/__version__ =/d' src/toposolve/__init__.py > src/toposolve/__init__.py.tmp
+          mv src/toposolve/__init__.py.tmp src/toposolve/__init__.py
           echo "__version__ = \"$VERSION\"" >> src/toposolve/__init__.py
         shell: bash
 
@@ -73,6 +75,8 @@ jobs:
 
       - name: Update version in __init__.py
         run: |
+          sed '/__version__ =/d' src/toposolve/__init__.py > src/toposolve/__init__.py.tmp
+          mv src/toposolve/__init__.py.tmp src/toposolve/__init__.py
           echo "__version__ = \"$VERSION\"" >> src/toposolve/__init__.py
 
       - name: Install build
