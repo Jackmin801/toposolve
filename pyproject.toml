@@ -35,6 +35,8 @@ test-skip = ["*universal2:arm64"]
 
 [tool.cibuildwheel.macos]
 archs = ["x86_64", "arm64"]
+before-build = "pip install delocate"
+repair-wheel-command = "delocate-wheel --require-archs {archs} -w {dest_dir} -v {wheel}"
 
 [tool.cibuildwheel.linux]
 archs = ["x86_64"]

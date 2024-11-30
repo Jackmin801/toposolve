@@ -4,6 +4,11 @@ project(toposolve)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Set architecture flags for Apple
+if(APPLE)
+    set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for macOS" FORCE)
+endif()
+
 # Add Python and pybind11
 execute_process(
     COMMAND "${PYTHON_EXECUTABLE}" -c "import pybind11; print(pybind11.get_cmake_dir())"
@@ -13,3 +18,8 @@ execute_process(
 find_package(pybind11 CONFIG REQUIRED PATHS "${pybind11_DIR}")
 
 pybind11_add_module(_toposolve src/toposolve/_toposolve.cpp)
+
+# Set target properties for architecture
+if(APPLE)
+    set_target_properties(_toposolve PROPERTIES OSX_ARCHITECTURES "x86_64;arm64")
+endif()
