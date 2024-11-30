@@ -47,24 +47,8 @@ class CMakeBuild(build_ext):
         )
 
 setup(
-    name="toposolve",
-    author="Jack Min Ong",
-    author_email="ongjackm@gmail.com",
-    description="A fast C++ implementation of the Held-Karp algorithm for solving TSP",
-    long_description=open("README.md").read(),
-    long_description_content_type="text/markdown",
-    url="https://github.com/Jackmin801/toposolve",
     packages=["toposolve"],
     package_dir={"": "src"},
-    ext_modules=[CMakeExtension("toposolve._toposolve")],  # Updated name here
+    ext_modules=[CMakeExtension("toposolve._toposolve")],
     cmdclass={"build_ext": CMakeBuild},
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ],
-    python_requires=">=3.6",
-    setup_requires=["pybind11>=2.6.0"],
-    install_requires=["pybind11>=2.6.0"],
-    zip_safe=False,
 )

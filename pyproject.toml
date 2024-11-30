@@ -10,6 +10,21 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "toposolve"
 dynamic = ["version"]
+authors = [
+    {name = "Jack Min Ong", email = "ongjackm@gmail.com"},
+]
+description = "A fast C++ implementation of the Held-Karp algorithm for solving TSP"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pybind11>=2.6.0",
+]
 
 [tool.setuptools.dynamic]
 version = {attr = "toposolve.__version__"}
