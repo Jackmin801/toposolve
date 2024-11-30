@@ -17,7 +17,7 @@ execute_process(
 )
 find_package(pybind11 CONFIG REQUIRED PATHS "${pybind11_DIR}")
 
-pybind11_add_module(_toposolve src/toposolve/_toposolve.cpp)
+pybind11_add_module(_toposolve ${CMAKE_CURRENT_SOURCE_DIR}/src/toposolve/_toposolve.cpp)
 
 # Ensure proper output directory structure for Windows
 if(WIN32)
