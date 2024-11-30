@@ -1,11 +1,18 @@
 [build-system]
 requires = [
-    "setuptools>=42",
+    "setuptools>=61.0",
     "wheel",
     "pybind11>=2.6.0",
     "cmake>=3.18",
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "toposolve"
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "toposolve.__version__"}
 
 [tool.cibuildwheel]
 test-command = "python -c \"import toposolve; solver = toposolve.TSPSolver()\""
