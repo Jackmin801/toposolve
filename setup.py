@@ -32,8 +32,6 @@ class CMakeBuild(build_ext):
         env = os.environ.copy()
         if platform.system() == "Windows":
             build_args += ["--", "/m"]
-            # Specify the generator for Windows
-            cmake_args += ["-G", "Visual Studio 17 2022", "-A", "x64"]
         else:
             build_args += ["--", "-j2"]
 
