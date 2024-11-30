@@ -17,14 +17,13 @@ execute_process(
 )
 find_package(pybind11 CONFIG REQUIRED PATHS "${pybind11_DIR}")
 
-pybind11_add_module(_toposolve ${CMAKE_CURRENT_SOURCE_DIR}/src/toposolve/_toposolve.cpp)
+# Create the extension module
+pybind11_add_module(_toposolve src/toposolve/_toposolve.cpp)
 
-# Ensure proper output directory structure for Windows
+# Ensure proper output naming
+set_target_properties(_toposolve PROPERTIES PREFIX "")
 if(WIN32)
-    set_target_properties(_toposolve PROPERTIES
-        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/toposolve
-        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/toposolve
-    )
+    set_target_properties(_toposolve PROPERTIES SUFFIX ".pyd")
 endif()
 
 # Set Mac-specific architecture
