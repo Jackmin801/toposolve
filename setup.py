@@ -48,7 +48,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name="toposolve",
-    version="0.1.1",
+    version="0.1.2",
     author="Jack Min Ong",
     author_email="ongjackm@gmail.com",
     description="A fast C++ implementation of the Held-Karp algorithm for solving TSP",
